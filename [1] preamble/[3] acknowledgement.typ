@@ -1,6 +1,7 @@
 #let acknowledgement(
   authors: (),
   guide: (),
+  department: (),
   subject: none,
 ) = {
   set page(background: rect(width: 100% - 1in, height: 100% - 1in))
@@ -32,7 +33,7 @@
 
     We would like to thank *Dr. Krishnamurthy G N*, Deputy Director, BNMIT, Bengaluru for his constant encouragement.\ \
 
-    We would like to thank *Dr. Chayadevi M L*, Professor and Head in the Department of Computer Science and Engineering, BNMIT, Bengaluru, for her support and encouragement towards the completion of the #subject Project.\ \
+    We would like to thank *#department.hod*, Professor and Head in the Department of #department.name, BNMIT, Bengaluru, for her support and encouragement towards the completion of the #subject Project.\ \
 
     We would like to express our gratitude to our guide *#guide.at(0).name*, #guide.at(0).designation in the Department of #guide.at(0).department.at(1), BNMIT, Bengaluru, who has given us all the support and guidance in completing the #subject project successfully.\ \ ]
 

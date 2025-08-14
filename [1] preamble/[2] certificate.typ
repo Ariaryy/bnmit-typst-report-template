@@ -24,6 +24,7 @@
 
 #let certificate(
   title: none,
+  department: (),
   authors: (),
   guide: (),
   subject: none,
@@ -53,7 +54,7 @@
 
   set text(size: 12pt, font: "Times New Roman", hyphenate: false)
 
-  pad(upper([*Department of Computer Science and Engineering*\ ]))
+  pad(upper([*Department of #(department.name)*\ ]))
   pad(top: -10pt, bottom: 0pt, image("/template-images/bnmit.png", width: 24%))
 
   underline(text([*CERTIFICATE*], size: 14pt))
@@ -69,7 +70,7 @@
 
 
   [
-    Certified that the #titlecase(semester.at(1)) Semester #subject Project entitled *#quote(title)* carried out by #print-names(authors: authors) bonafide students of #numbering("I", semester.at(0)) Semester B.E., *B.N.M Institute of Technology*, an Autonomous Institution under Visvesvaraya Technological University, Belagavi submitted in partial fulfillment for the Bachelor of Engineering in COMPUTER SCIENCE AND ENGINEERING, Belagavi during the year #year. It is certified that all corrections/suggestions indicated for Internal Assessment have been incorporated in the report. The #subject project report has been approved as it satisfies the academic requirements in respect of the project prescribed.
+    Certified that the #titlecase(semester.at(1)) Semester #subject Project entitled *#quote(title)* carried out by #print-names(authors: authors) bonafide students of #numbering("I", semester.at(0)) Semester B.E., *B.N.M Institute of Technology*, an Autonomous Institution under Visvesvaraya Technological University, Belagavi submitted in partial fulfillment for the Bachelor of Engineering in #upper(department.name), Belagavi during the year #year. It is certified that all corrections/suggestions indicated for Internal Assessment have been incorporated in the report. The #subject project report has been approved as it satisfies the academic requirements in respect of the project prescribed.
   ]
 
   set align(center)
@@ -89,18 +90,18 @@
     table(
       stroke: none,
       rows: 4,
-      [*HOD Name*],
+      [*#(department.hod)*],
       [Professor and HOD],
-      [Dept. of <Dept_name>],
-      [BNMIT, Bengaluru]
+      [Dept. of #(department.abbreviation)],
+      [BNMIT, Bengaluru],
     ),
     table(
       stroke: none,
       rows: 4,
-      [*Name*],
-      [Additional Director - designation],
+      [*Dr. S Y Kulkarni*],
+      [Additional Director],
       [and Principal],
-      [BNMIT, Bengaluru]
+      [BNMIT, Bengaluru],
     ),
   )
 

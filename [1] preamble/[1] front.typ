@@ -7,6 +7,7 @@
   semester: none,
   section: none,
   year: none,
+  department: ()
 ) = {
   set page(background: rect(width: 100% - 1in, height: 100% - 1in))
   set align(center + horizon)
@@ -24,7 +25,7 @@
 
   pad(text([_Submitted in partial fulfilment for the award of degree of_], size: 12pt))
 
-  [*Bachelor of Engineering\ in\ COMPUTER SCIENCE AND ENGINEERING*\ ]
+  [*Bachelor of Engineering\ in\ #upper(department.name)*\ ]
 
   set text(size: 12pt)
   v(1pt)
@@ -64,6 +65,6 @@
 
   set text(size: 16pt, font: "Times New Roman")
 
-  [*Department of Computer Science and Engineering*\ ]
+  [*Department of #department.name*\ ]
   underline([*#year*])
 }

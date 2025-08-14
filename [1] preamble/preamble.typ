@@ -4,6 +4,7 @@
 
 #let preamble(
   title: none,
+  department: (),
   authors: (),
   guide: (),
   subject: none,
@@ -22,6 +23,7 @@
     semester: semester,
     section: section,
     year: year,
+    department: department
   )
 
   certificate(
@@ -31,6 +33,7 @@
     guide: guide,
     semester: semester,
     section: section,
+    department: department,
     year: year,
   )
 
@@ -38,6 +41,7 @@
     subject: subject,
     authors: authors,
     guide: guide,
+    department: department
   )
 
   doc

@@ -1,6 +1,8 @@
 #let conf(
   title: none,
   authors: (),
+  year: none,
+  department: none,
   doc,
 ) = {
   let leading = 1.5em
@@ -112,9 +114,9 @@
           rows: 2,
           grid(
             columns: 3,
-            block(width: 100%, "Dept. of CSE, BNMIT"),
-            block(width: 100%, align(center, "2024-25")),
-            block(width: 100%, align(right, "Page " + str(here().page()))),
+            block(width: 100%, "Dept. of " + department.abbreviation + ", BNMIT"),
+            block(width: 100%, align(center, year)),
+            block(width: 100%, align(right, "Page " + str(counter(page).display()))),
           ),
           align: left
         )

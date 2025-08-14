@@ -1,14 +1,16 @@
-#set text(size: 12pt, font: "Times New Roman", hyphenate: false)
+#let abstract(
+  abstract_content,
+) = {
+  pad(bottom: 16pt, align(center, (text([*ABSTRACT*], size: 16pt))))
 
-#pad(bottom: 16pt, align(center, (text([*Abstract*], size: 16pt))))
-
-#let leading = 1.5em
-#let leading = leading - 0.5em
+  let leading = 1.5em
+  let leading = leading - 0.5em
 
 
-#set par(
-  justify: true,
-  leading: leading,
-)
+  set par(
+    justify: true,
+    leading: leading,
+  )
 
-#lorem(200)
+  abstract_content
+}
