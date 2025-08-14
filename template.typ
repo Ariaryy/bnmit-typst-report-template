@@ -19,6 +19,24 @@
 
   set block(spacing: leading)
 
+  show figure.where(kind: image): set figure(
+    supplement: [Fig.],
+    numbering: (..nums) => {
+      let chapter-num = counter(heading).get().first()
+      let fig-num = nums.pos().first()
+      str(chapter-num) + "." + str(fig-num)
+    },
+  )
+
+  show figure.where(kind: table): set figure(
+    supplement: [Table],
+    numbering: (..nums) => {
+      let chapter-num = counter(heading).get().first()
+      let fig-num = nums.pos().first()
+      str(chapter-num) + "." + str(fig-num)
+    },
+  )
+
   set heading(
     numbering: (..nums) => {
       let level = nums.pos().len()
@@ -96,8 +114,8 @@
             rows: 2,
             gutter: 2pt,
             line(length: 100%, stroke: 0.5pt),
-            line(length: 100%, stroke: 1pt)
-          )
+            line(length: 100%, stroke: 1pt),
+          ),
         )
       }
     },
@@ -108,7 +126,7 @@
             rows: 2,
             gutter: 2pt,
             line(length: 100%, stroke: 0.5pt),
-            line(length: 100%, stroke: 1pt)
+            line(length: 100%, stroke: 1pt),
           ),
           gutter: 6pt,
           rows: 2,
@@ -118,7 +136,7 @@
             block(width: 100%, align(center, year)),
             block(width: 100%, align(right, "Page " + str(counter(page).display()))),
           ),
-          align: left
+          align: left,
         )
       }
     },

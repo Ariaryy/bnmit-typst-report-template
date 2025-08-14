@@ -5,7 +5,10 @@
     footer: none,
   )
 
-  pad(bottom: 16pt, align(center, (text([*REFERENCES*], size: 16pt))))
+  set align(center)
+  [= REFERENCES]
+  v(16pt)
+  set align(left)
 
   let leading = 1.5em
   let leading = leading - 0.5em
