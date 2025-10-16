@@ -19,7 +19,7 @@
   pad(y: -4pt, image("/template-images/vtu.png", width: 15%))
 
   [*#subject (#subject_code)\ Report On*\ ]
-  text(strong(title), rgb("006ebf"))
+  block(text(strong(title), rgb("006ebf")), width: 300pt)
 
   set text(size: 14pt)
 

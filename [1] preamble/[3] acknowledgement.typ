@@ -3,6 +3,7 @@
   guide: (),
   department: (),
   subject: none,
+  subject_code: none
 ) = {
   set page(background: rect(width: 100% - 1in, height: 100% - 1in))
   set align(left + horizon)
@@ -21,7 +22,7 @@
   )
 
 
-  [We consider it a privilege to express through the pages of this report, a few words of gratitude to all those distinguished personalities who guided and inspired us in the completion of this #subject Project.\ \
+  [We consider it a privilege to express through the pages of this report, a few words of gratitude to all those distinguished personalities who guided and inspired us in the completion of this project as a part of *#subject* (#subject_code) course.\ \
 
     We would like to thank *Shri. Narayan Rao R Maanay*, Secretary, BNMEI, Bengaluru for providing an excellent academic environment in college.\ \
 
@@ -35,7 +36,7 @@
 
     We would like to thank *#department.hod*, Professor and Head in the Department of #department.name, BNMIT, Bengaluru, for her support and encouragement towards the completion of the #subject Project.\ \
 
-    We would like to express our gratitude to our guide *#guide.at(0).name*, #guide.at(0).designation in the Department of #guide.at(0).department.at(1), BNMIT, Bengaluru, who has given us all the support and guidance in completing the #subject project successfully.\ \ ]
+    We would like to express our gratitude to our guide *#guide.at(0).name*, #guide.at(0).designation in the Department of #guide.at(0).department.at(1), BNMIT, Bengaluru, who has given us all the support and guidance in completing the project work as a part of the #subject (#subject_code) course successfully.\ \ ]
 
   align(
     right,

@@ -70,7 +70,7 @@
 
 
   [
-    Certified that the #titlecase(semester.at(1)) Semester #subject Project entitled *#quote(title)* carried out by #print-names(authors: authors) bonafide students of #numbering("I", semester.at(0)) Semester B.E., *B.N.M Institute of Technology*, an Autonomous Institution under Visvesvaraya Technological University, Belagavi submitted in partial fulfillment for the Bachelor of Engineering in #upper(department.name), Belagavi during the year #year. It is certified that all corrections/suggestions indicated for Internal Assessment have been incorporated in the report. The #subject project report has been approved as it satisfies the academic requirements in respect of the project prescribed.
+    Certified that the project work entitled *#quote(title)* carried out by #print-names(authors: authors) bonafide students of #numbering("I", semester.at(0)) Semester B.E., *B.N.M. Institute of Technology*, an Autonomous Institution under Visvesvaraya Technological University, Belagavi submitted in partial fulfillment for the Bachelor of Engineering in #upper(department.name), during the year #year. It is certified that all corrections/suggestions indicated for Internal Assessment have been incorporated in the report. This report has been approved as it satisfies the academic requirements in respect of the project prescribed.
   ]
 
   set align(center)

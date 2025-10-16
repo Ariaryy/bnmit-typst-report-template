@@ -39,6 +39,7 @@
 
   acknowledgement(
     subject: subject,
+    subject_code: subject_code,
     authors: authors,
     guide: guide,
     department: department

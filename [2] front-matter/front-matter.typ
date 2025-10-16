@@ -25,8 +25,8 @@
       grid(
         columns: 3,
         block(width: 100%, "Dept. of " + department.abbreviation + ", BNMIT"),
-        block(width: 100%, align(center, year)),
-        block(width: 100%, align(right, "Page " + str(counter(page).display("I")))),
+        block(width: 100%, align(center, str(counter(page).display("I")))),
+        block(width: 100%, align(right, year)),
       ),
       align: left,
     ),
