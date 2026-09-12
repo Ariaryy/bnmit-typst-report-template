@@ -9,8 +9,8 @@
 //
 // These two bindings are what make the template branch-agnostic. Change them
 // and the cover, the certificate's signature block, the acknowledgement and
-// the page footer all follow, because everything below refers to these rather
-// than repeating "CSE" in eight places.
+// the page footer all follow, because every field below refers to these
+// instead of repeating the department in eight places.
 // ---------------------------------------------------------------------------
 
 #let department = (
@@ -41,16 +41,14 @@
     code: "23CSE175",
   ),
 
-  // Free-form content, printed on the cover above the title. Written as
-  // content (square brackets) rather than a string so you can change the
-  // wording, the line breaks and the emphasis without touching the template.
-  // `Report On`, `Project Phase I Report On`, `A Mini Project Report On`, and
-  // anything else the department asks for this semester all fit here.
+  // The line printed on the cover between the subject and the title. Written
+  // as content (square brackets) rather than a string so the wording, the line
+  // breaks and the emphasis are all yours, whatever the department asks for
+  // this semester.
   cover-line: [*Report On*],
 
-  // The award the report is submitted towards, printed on the cover and in the
-  // certificate paragraph. "Bachelor of Engineering" for every B.E. branch;
-  // change it if your programme is named differently.
+  // The award the report is submitted towards, printed on the cover and named
+  // in the certificate paragraph. Change it if your programme is not a B.E.
   degree: "Bachelor of Engineering",
 
   // ---- Who wrote it ----------------------------------------------------
@@ -125,12 +123,12 @@
     abstract: true,
     references: true,
 
-    // The `V "A" Section` line on the cover, under the author list. Some
-    // reports are not tied to a section and want it gone.
-    cover-section: true,
+    // The line under the author list on the cover naming the semester and
+    // class section. Some reports are not tied to a section at all.
+    class-section: true,
 
-    // How many "Examiner N: ___" rows appear under the signature block on
-    // the certificate. Set to 0 to drop the block entirely.
+    // How many examiner rows appear under the certificate's signature block.
+    // Set to 0 to drop the block entirely.
     external-examiners: 2,
   ),
 
@@ -171,10 +169,10 @@
     text-size: (
       title: 18pt,
 
-      // A chapter announces itself with "CHAPTER N" first and its name second,
-      // so the label is the larger of the two lines and the name sits a step
-      // under it. Front matter page titles and the reference list heading use
-      // `h1`, independently of either.
+      // A chapter announces its number first and its name second, so the
+      // label is the larger of the two lines and the name sits a step under
+      // it. Front matter page titles and the reference list heading use `h1`,
+      // independently of either.
       separator-label: 18pt,
       separator-title: 16pt,
       chapter-label: 16pt,

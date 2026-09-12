@@ -49,7 +49,7 @@
       ..config.authors.map(a => (strong(a.name), strong(a.usn))).flatten(),
     ),
   )
-  #if config.options.cover-section [
+  #if config.options.class-section [
     #numbering("I", config.semester.number) #quote(config.semester.section) Section
     #linebreak()
   ]

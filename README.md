@@ -161,8 +161,8 @@ Two to four entries lay out well. Past four the columns get too narrow to read.
 | `header-rules` | `true` | the two hairlines under the running head and above the running foot |
 | `abstract` | `true` | include the abstract page |
 | `references` | `true` | include the reference list. Turning it off still loads the bibliography, so existing `@citations` keep compiling and keep rendering as `[1]` |
-| `cover-section` | `true` | the `V "A" Section` line on the cover, under the author list |
-| `external-examiners` | `2` | how many `Examiner N:` rows appear on the certificate. `0` removes the block |
+| `class-section` | `true` | the line under the author list on the cover naming the semester and class section |
+| `external-examiners` | `2` | how many examiner rows appear on the certificate. `0` removes the block |
 
 ### `layout.margin`
 
