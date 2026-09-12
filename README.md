@@ -48,8 +48,8 @@ cargo install --locked typst-cli     # anywhere with Rust
 git clone <this-repo> my-report
 cd my-report
 
-typst compile --root . main.typ            # one-shot build, writes main.pdf
-typst watch  --root . main.typ             # rebuild on every save
+typst compile main.typ                     # one-shot build, writes main.pdf
+typst watch  main.typ                      # rebuild on every save
 ```
 
 Always compile `main.typ`. A chapter file on its own renders as a few unstyled
@@ -57,11 +57,12 @@ pages with no cover, contents or page numbers, because `main.typ` is what
 applies the template. In VS Code with Tinymist, run **Typst: Pin main file** on
 `main.typ` once, otherwise the preview follows whichever file you are editing.
 
-`--root .` matters. The template refers to images with absolute paths like
-`/template-images/bnmit.png`, and `--root` is what defines where `/` points.
+No `--root` flag is needed. Every path in the template is relative to the file
+it appears in, so the build does not depend on where the project root is taken
+to be.
 
 For live preview while editing, install the **Tinymist Typst** extension in
-VS Code and open the folder. It handles `--root` on its own.
+VS Code and open the folder.
 
 ### Path C: with a coding agent
 
@@ -73,7 +74,7 @@ and at `03_chapters/` for content. A useful opening instruction:
 > live in `config.typ`; do not change `template.typ` or `report.typ` unless I
 > ask for a structural change. Chapters are in `03_chapters/`, one file per
 > chapter, included in order from `main.typ`. Compile with
-> `typst compile --root . main.typ`.
+> `typst compile main.typ`.
 
 ---
 
@@ -250,11 +251,12 @@ below. Read it once, then replace it.
 
 ### Figures
 
-Put your images in `report-images/` and refer to them from the project root:
+Put your images in `report-images/` and refer to them with a path relative to
+the chapter file, which is what the leading `../` is doing:
 
 ```typst
 #figure(
-  image("/report-images/architecture.png", width: 80%),
+  image("../report-images/architecture.png", width: 80%),
   caption: [System architecture],
 ) <fig-architecture>
 
@@ -263,6 +265,12 @@ As shown in @fig-architecture, ...
 
 Figures number per chapter (`2.1`, `2.2`) with the caption below, and appear in
 the List of Figures automatically.
+
+Use `../report-images/...`, not `/report-images/...`. A leading slash means "the
+project root", and the root is whatever your editor or your `typst` command
+decides it is. Open a parent folder as your VS Code workspace, or keep this
+template inside a larger repository, and every absolute path stops resolving. A
+relative path does not care where the root is.
 
 ### Tables
 
@@ -346,7 +354,7 @@ If the dialog reports 100% and a margin still measures wrong on paper, build
 the calibration sheet:
 
 ```bash
-typst compile --root . calibration.typ
+typst compile calibration.typ
 ```
 
 It carries a 10 cm bar, a 5 in bar and inch rulers down two edges, all drawn at

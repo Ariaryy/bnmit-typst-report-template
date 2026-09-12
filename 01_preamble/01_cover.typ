@@ -10,7 +10,7 @@
   #linebreak()
   JNANASANGAMA, BELAGAVI - 590018
 
-  #pad(y: -8pt * k, image("/template-images/vtu.png", width: 16% * k))
+  #pad(y: -8pt * k, image("../template-images/vtu.png", width: 16% * k))
 
   #strong[#config.subject.name (#config.subject.code)]
   #linebreak()
@@ -62,7 +62,7 @@
   #linebreak()
   BNMIT, Bengaluru
 
-  #pad(top: -8pt * k, bottom: -4pt * k, image("/template-images/bnmit.png", width: 25% * k))
+  #pad(top: -8pt * k, bottom: -4pt * k, image("../template-images/bnmit.png", width: 25% * k))
 
   #institute-plate(config, k: k)
 

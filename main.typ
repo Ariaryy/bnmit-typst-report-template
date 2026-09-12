@@ -1,16 +1,13 @@
 // ===========================================================================
 // THIS is the file to compile. Not a chapter, not config.typ.
 //
-//   typst compile --root . main.typ        one-shot build
-//   typst watch  --root . main.typ         rebuild on every save
+//   typst compile main.typ        one-shot build
+//   typst watch  main.typ         rebuild on every save
 //
 // In the Typst web app, open this file before pressing preview. In VS Code
 // with Tinymist, run "Typst: Pin main file" on this file once, otherwise the
 // preview follows whichever file you are editing and a chapter on its own
 // renders as a few unstyled pages with no cover, contents or page numbers.
-//
-// `--root .` matters: images are referenced as /report-images/... and --root
-// is what defines where that leading slash points.
 // ===========================================================================
 //
 // Edit config.typ for everything about your report. Edit the chapter files for

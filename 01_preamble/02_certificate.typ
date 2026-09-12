@@ -26,7 +26,7 @@
 
   #upper[*Department of #config.department.name*]
   #linebreak()
-  #pad(top: -10pt * k, bottom: 0pt, image("/template-images/bnmit.png", width: 22% * k))
+  #pad(top: -10pt * k, bottom: 0pt, image("../template-images/bnmit.png", width: 22% * k))
 
   #underline(text([*CERTIFICATE*], size: 14pt * k))
 

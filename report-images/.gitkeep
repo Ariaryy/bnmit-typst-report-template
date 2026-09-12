@@ -1,1 +1,10 @@
-Put your figures here and refer to them as "/report-images/name.png".
+Put your figures here.
+
+Refer to them from a chapter with a path relative to the chapter file:
+
+    #image("../report-images/name.png", width: 80%)
+
+Relative rather than "/report-images/name.png", because a leading slash means
+"the project root", and the root is whatever your editor or your typst command
+says it is. Open a parent folder as your workspace and every absolute path
+breaks. A relative path does not care.

@@ -1,6 +1,6 @@
 // A one-sheet print test.
 //
-//   typst compile --root . calibration.typ
+//   typst compile calibration.typ
 //
 // Before you print anything, open the print dialog and look at the Scale
 // figure it reports. If it says anything other than 100%, that is your answer

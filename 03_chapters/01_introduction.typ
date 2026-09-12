@@ -34,7 +34,7 @@ Put your images in `report-images/` and refer to them with an absolute path.
 Figures number themselves per chapter and the caption sits below.
 
 #figure(
-  image("/template-images/bnmit.png", width: 40%),
+  image("../template-images/bnmit.png", width: 40%),
   caption: [The college logo, standing in for a real figure],
 ) <fig-logo>
 
