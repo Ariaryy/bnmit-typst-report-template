@@ -133,6 +133,11 @@
       title: 18pt,
       separator: 18pt,
       h1: 16pt,
+      // The "CHAPTER 1" label above a chapter title. One step down the ladder
+      // from the title itself, so the two read as a label and its heading
+      // rather than as two headings of equal weight. On the separator page the
+      // same pair is `h1` over `separator`.
+      chapter-label: 14pt,
       h2: 14pt,
       h3: 12pt,
       h4: 12pt,

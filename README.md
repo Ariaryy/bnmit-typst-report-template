@@ -168,8 +168,9 @@ font families, and `text-size`, which holds the whole type ladder:
 
 | Element | Size |
 | --- | --- |
-| cover title, chapter separator card | 18 pt |
-| chapter heading, front matter titles | 16 pt |
+| cover title, chapter separator title | 18 pt |
+| chapter heading, front matter titles, separator's "CHAPTER N" label | 16 pt |
+| the "CHAPTER N" label above a chapter heading | 14 pt |
 | level 2 heading | 14 pt |
 | level 3 and 4 headings | 12 pt |
 | body text | 12 pt |

@@ -63,10 +63,15 @@
     footer: none,
     {
       set align(center + horizon)
-      set text(size: config.style.text-size.separator, weight: "bold")
+      set text(weight: "bold")
       // Held well inside the border so a long chapter title wraps into a
       // block instead of running rule to rule.
-      block(width: 80%)[CHAPTER #number \ #upper(title)]
+      block(width: 80%)[
+        #text(size: config.style.text-size.h1)[CHAPTER #number]
+        #linebreak()
+        #v(0.2em)
+        #text(size: config.style.text-size.separator)[#upper(title)]
+      ]
     },
   )
 }
@@ -131,7 +136,7 @@
     [#metadata(none)<chapter-start>]
 
     block(width: 100%)[
-      #text(size: style.text-size.h1, weight: "bold")[CHAPTER #number]
+      #text(size: style.text-size.chapter-label, weight: "bold")[CHAPTER #number]
       #set align(center)
       #set text(size: style.text-size.h1, weight: "bold")
       #upper(it.body)
