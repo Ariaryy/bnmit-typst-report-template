@@ -185,7 +185,7 @@
       body: 12pt,
       caption: 10pt,
       running: 10pt,
-      fine-print: 8.8pt,
+      fine-print: 9pt,
     ),
 
     // 1.5 line spacing in Word terms. Typst measures the gap between lines
