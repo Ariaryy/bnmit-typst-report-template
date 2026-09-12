@@ -116,8 +116,9 @@ or a switch.
 | Key | What it does |
 | --- | --- |
 | `title` | project title; appears on the cover, the certificate and every page header |
-| `subject.name`, `subject.code` | printed on the cover and woven into the acknowledgement |
-| `cover-line` | the line above the title, e.g. `[*Report On*]`. Content rather than a string, so you can change wording, line breaks and emphasis freely |
+| `subject.name` | subject name used in the acknowledgement |
+| `subject.cover-name`, `subject.code` | subject text and code printed on the cover; `cover-name` may differ from `name`, e.g. `Project Phase I Report` |
+| `cover-line` | the line between the subject and title on the cover, e.g. `[*Report On*]` or `[*On*]` |
 | `authors` | list of `(name, usn)`; drives the cover, the certificate and the acknowledgement sign-off |
 | `guide` | the project guide's name, designation and department |
 | `department` | name, abbreviation (used in the page footer) and HOD |
@@ -344,16 +345,20 @@ Mendeley rather than writing them by hand.
 Print at **Actual size**. Do not use **Fit**, **Fit to printable area** or
 **Shrink oversized pages**.
 
-Those options scale an A4 page down to clear the printer's unprintable edge and
-pull the report's margins inwards with it. A 1.25in margin can land near 1.33in
-and a 0.75in top margin near 0.98in, with nothing wrong in the file.
+In Adobe Acrobat, **Fit** scales the PDF to the selected printer's printable
+area. The percentage varies by printer and driver; it was about 93% in our
+test. Use **Actual size** or 100% scale to preserve the intended dimensions,
+and check the preview for clipping.
+
+At 93%, a 1.25in margin can land near 1.33in and a 0.75in top margin near
+0.98in, with nothing wrong in the file.
 
 **Check this before you print.** Most print dialogs show a *Scale* figure next
 to the preview. If it reads anything other than 100%, that is the problem:
 
 ```
 Page Sizing & Handling
-  ( ) Fit                 <- scales to ~93% on A4
+  ( ) Fit                 <- scale varies by printer
   (o) Actual size         <- use this
   ( ) Shrink oversized pages
 ```

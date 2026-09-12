@@ -39,18 +39,18 @@
   // ---- What the report is about ----------------------------------------
   title: "Your Project Title",
 
-  // The acknowledgement uses this as a course name. If you enter a project
-  // name such as "Project Phase I", edit the three matching sentences in
-  // 01_preamble/03_acknowledgement.typ so they sound correct.
+  // `name` is also used in the acknowledgement. If it is a project name such
+  // as "Project Phase I", edit the three matching acknowledgement sentences.
+  // `cover-name` may be different, such as "Project Phase I Report".
   subject: (
     name: "Subject Name",
+    cover-name: "Subject Name",
     code: "23CSE175",
   ),
 
-  // The line printed on the cover between the subject and the title. Written
-  // as content (square brackets) rather than a string so the wording, the line
-  // breaks and the emphasis are all yours, whatever the department asks for
-  // this semester.
+  // Printed below the subject on the cover. For example, use [*On*] with
+  // cover-name: "Project Phase I Report" to print "Project Phase I Report
+  // (23CSE175)" followed by "On".
   cover-line: [*Report On*],
 
   // The award the report is submitted towards, printed on the cover and named
@@ -80,6 +80,10 @@
   ),
 
   // ---- The certificate signature block ---------------------------------
+  // IMPORTANT: Certificate wording and signatories can vary by project.
+  // Compare the generated page with the certificate format you were given.
+  // If its wording differs, edit 01_preamble/02_certificate.typ.
+  //
   // The grid draws one column per entry, so adding or removing a signatory
   // re-flows the row on its own. Two to four entries fit comfortably; past
   // four the columns get too narrow to read.

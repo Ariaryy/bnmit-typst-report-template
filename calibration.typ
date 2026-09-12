@@ -8,9 +8,10 @@
 // Sizing & Handling, choose "Actual size" rather than "Fit" or "Shrink
 // oversized pages".
 //
-// "Fit" scales an A4 page down to clear the printer's unprintable border,
-// typically to somewhere around 93%, and pulls every margin in the report
-// inwards by that factor. Nothing in the file is wrong when this happens.
+// In Adobe Acrobat, "Fit" scales the PDF to the selected printer's printable
+// area. The percentage varies by printer and driver; it was about 93% in our
+// test. Use "Actual size" or 100% scale to preserve the intended dimensions,
+// and check the preview for clipping.
 //
 // If the dialog reports 100% and a margin still measures wrong on paper, print
 // this page and measure the two bars.

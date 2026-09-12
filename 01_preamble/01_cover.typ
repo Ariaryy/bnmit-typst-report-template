@@ -12,7 +12,7 @@
 
   #pad(y: -8pt * k, image("../template-images/vtu.png", width: 16% * k))
 
-  #strong[#config.subject.name (#config.subject.code)]
+  #strong[#config.subject.cover-name (#config.subject.code)]
   #linebreak()
   #config.cover-line
   #linebreak()

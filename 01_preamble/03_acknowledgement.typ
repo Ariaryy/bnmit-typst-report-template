@@ -41,8 +41,7 @@
 
   #thanks[We consider it a privilege to express through the pages of this report, a few
     words of gratitude to all those distinguished personalities who guided and inspired
-    us in the completion of this project as a part of *#config.subject.name*
-    (#config.subject.code) course.]
+    us in the completion of this project as a part of *#config.subject.name* course.]
 
   #thanks[We would like to thank *Shri. Narayan Rao R Maanay*, Secretary, BNMEI,
     Bengaluru for providing an excellent academic environment in college.]
@@ -67,7 +66,7 @@
   #thanks[We would like to express our gratitude to our guide *#config.guide.name*,
     #config.guide.designation in the Department of #config.guide.department.name,
     BNMIT, Bengaluru, who has given us all the support and guidance in completing the
-    project work as a part of the #config.subject.name (#config.subject.code) course
+    project work as a part of the #config.subject.name course
     successfully.]
 
   #v(1.5em)

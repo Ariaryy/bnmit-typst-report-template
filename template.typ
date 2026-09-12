@@ -174,7 +174,7 @@
   linebreak()
   config.institute.accreditation
   linebreak()
-  [URL: #config.institute.url]
+  [Website: #config.institute.url]
   linebreak()
 }
 
