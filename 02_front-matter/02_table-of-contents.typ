@@ -18,10 +18,14 @@
         let page-number = str(counter(page).at(h.location()).first())
         let chapter = h.level == 1
         let style = if chapter { strong } else { it => it }
-        let title = if chapter { upper(h.body) } else { h.body }
+        // Chapter titles are set in caps on the chapter page itself, but a
+        // column of caps in the contents is hard to scan. Bold carries the
+        // distinction here instead.
+        let title = h.body
 
         (
-          link(h.location(), pad(left: if chapter { 0em } else { 1em }, style(number))),
+          // Sections sit indented under their chapter number.
+          link(h.location(), pad(left: if chapter { 0.8em } else { 2.4em }, style(number))),
           link(h.location(), style(title)),
           link(h.location(), style(page-number)),
         )

@@ -20,9 +20,15 @@
 
   set text(size: config.style.text-size.body, font: config.style.fonts.body)
   set heading(numbering: none)
-  show heading.where(level: 1): set text(size: config.style.text-size.h1)
+  // Authored in title case so the contents table lists it as "References"
+  // alongside the chapter titles, and uppercased only for display here, where
+  // it has to match the caps a chapter page uses.
+  show heading.where(level: 1): it => text(
+    size: config.style.text-size.h1,
+    upper(it.body),
+  )
 
-  align(center)[= REFERENCES <references-heading>]
+  align(center)[= References <references-heading>]
   v(16pt)
 
   set par(justify: true, leading: config.style.leading)

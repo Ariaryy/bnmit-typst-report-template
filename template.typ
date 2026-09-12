@@ -115,15 +115,24 @@
 // The table of contents, list of figures and list of tables are the same
 // object with different columns, so they are built by one function and read as
 // one design. Columns are proportional rather than `auto` so all three lists
-// line up with each other, and everything is centred under its heading.
-#let entry-table(headers, rows, columns: (3fr, 5fr, 3fr)) = {
+// line up with each other.
+//
+// Headings are centred over their column; the rows underneath are not. The
+// number column is left aligned so a section number can sit visibly indented
+// under its chapter number, and the description column is justified so a
+// caption that wraps fills the column instead of forming a ragged stack.
+#let entry-table(headers, rows, columns: (2.4fr, 6.4fr, 2.2fr)) = {
+  let body-align = (left + horizon, left + horizon, center + horizon)
+  set par(justify: true)
   table(
     columns: columns,
     stroke: none,
-    align: center + horizon,
+    align: (col, row) => if row == 0 { center } else { body-align.at(col) },
     inset: (x: 4pt, y: 5pt),
     table.header(
-      ..headers.map(h => pad(bottom: 8pt, text(weight: "bold", upper(h)))),
+      // Title case rather than all caps: these headings sit above title cased
+      // entries, and a row of shouting above them reads worse than it looks.
+      ..headers.map(h => pad(bottom: 8pt, text(weight: "bold", h))),
     ),
     ..rows.flatten(),
   )
