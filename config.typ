@@ -85,8 +85,8 @@
   // If its wording differs, edit 01_preamble/02_certificate.typ.
   //
   // The grid draws one column per entry, so adding or removing a signatory
-  // re-flows the row on its own. Two to four entries fit comfortably; past
-  // four the columns get too narrow to read.
+  // re-flows the row on its own. Four entries use slightly smaller text to
+  // keep names together. Past four the columns get too narrow to read.
   //
   // The first two are built from `guide` and `department` above, so they stay
   // correct for any branch without being retyped here.
