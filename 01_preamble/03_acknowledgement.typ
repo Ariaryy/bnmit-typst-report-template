@@ -7,7 +7,6 @@
   #set text(
     size: config.style.text-size.body * k,
     font: config.style.fonts.body,
-    hyphenate: false,
   )
   #set par(justify: true, leading: config.style.leading)
 

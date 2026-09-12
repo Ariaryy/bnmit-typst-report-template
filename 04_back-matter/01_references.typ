@@ -18,7 +18,7 @@
     footer: running-footer(config),
   )
 
-  set text(size: config.style.text-size.body, font: config.style.fonts.body, hyphenate: false)
+  set text(size: config.style.text-size.body, font: config.style.fonts.body)
   set heading(numbering: none)
   show heading.where(level: 1): set text(size: config.style.text-size.h1)
 

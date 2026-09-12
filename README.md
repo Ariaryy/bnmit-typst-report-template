@@ -164,7 +164,12 @@ only appears on pages that carry no header, still sits at the true 0.75in.
 ### `style`
 
 `border-stroke`, `border-inset`, `paragraph-indent`, `leading`, the colours, the
-font families, and `text-size`, which holds the whole type ladder:
+font families, and `text-size`, which holds the whole type ladder.
+
+Hyphenation is off everywhere, the way Word behaves by default, so justified
+text pays for it in word spacing rather than in broken words.
+
+The ladder:
 
 | Element | Size |
 | --- | --- |

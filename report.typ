@@ -24,7 +24,7 @@
     header: none,
     footer: running-footer(config, page-numbering: "I"),
   )
-  set text(size: config.style.text-size.body, font: config.style.fonts.body, hyphenate: false)
+  set text(size: config.style.text-size.body, font: config.style.fonts.body)
   counter(page).update(1)
 
   if config.options.abstract {
@@ -177,7 +177,14 @@
 
 #let report(config, doc) = {
   set document(title: config.title, author: config.authors.map(a => a.name))
-  set text(font: config.style.fonts.body, size: config.style.text-size.body)
+  // Word does not hyphenate by default and this report does not either, so
+  // justified text pays for it in word spacing rather than in broken words.
+  // Set once here and inherited by every page, including the preamble.
+  set text(
+    font: config.style.fonts.body,
+    size: config.style.text-size.body,
+    hyphenate: false,
+  )
   set align(left)
 
   cover(config)

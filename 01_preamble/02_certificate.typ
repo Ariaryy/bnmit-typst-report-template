@@ -22,7 +22,6 @@
   #set text(
     size: config.style.text-size.body * k,
     font: config.style.fonts.body,
-    hyphenate: false,
   )
 
   #upper[*Department of #config.department.name*]
@@ -53,7 +52,6 @@
   // enough that justified text would stretch a wrapped name across it.
   #{
     set par(justify: false, leading: 0.65em)
-    set text(hyphenate: false)
     grid(
       columns: config.signatories.map(_ => 1fr),
       column-gutter: 10pt,
