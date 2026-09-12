@@ -1,3 +1,7 @@
+> **IMPORTANT:** Print at **Actual size (100% scale)**. If you use a print shop,
+> ask the staff to use these settings. Do not use **Fit**, **Fit to printable
+> area** or **Shrink oversized pages**. See [Printing](#5-printing).
+
 # BNMIT report template (Typst)
 
 A VTU/BNMIT project report in [Typst](https://typst.app): cover page,
@@ -226,6 +230,10 @@ Its wording is the one part of the report that is not standard, so it lives as
 prose in `01_preamble/03_acknowledgement.typ` rather than as fields in
 `config.typ`. Open that file and edit it. The comment at the top says which
 parts come from `config.typ` and should be changed there instead.
+
+**If your subject is a project rather than a course**, reword it. Three of its
+sentences treat `subject.name` as a course name, so a final year Project Phase
+I comes out as "the completion of the Project Phase I project".
 
 ### Chapters
 

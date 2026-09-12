@@ -1,3 +1,6 @@
+// IMPORTANT: Print at Actual size (100% scale). If you use a print shop, ask
+// the staff to use these settings. See README.md#printing.
+
 // ===========================================================================
 // THIS is the file to compile. Not a chapter, not config.typ.
 //

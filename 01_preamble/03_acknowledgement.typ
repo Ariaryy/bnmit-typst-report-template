@@ -13,6 +13,12 @@
 // subject, your guide, your department and its head, and the author list at
 // the bottom. Change those in config.typ, not here.
 //
+// One thing to watch: the sentences below treat `subject.name` as the name of
+// a course, in the first paragraph, the one thanking the head of department,
+// and the last one. If your subject is already a project rather than a course,
+// a final year Project Phase I for instance, those read as "the completion of
+// the Project Phase I project". Reword them; that is what this file is for.
+//
 // Each paragraph is wrapped in `thanks[...]`, which adds the gap after it.
 // Add, remove or reorder those freely. The page shrinks itself to stay on one
 // sheet, so a few extra paragraphs will not push it onto a second.

@@ -1,3 +1,6 @@
+// IMPORTANT: Print at Actual size (100% scale). If you use a print shop, ask
+// the staff to use these settings. See README.md#printing.
+
 // Everything you edit lives in this file. The rest of the template reads from
 // here and derives its own geometry, so you should never need to open
 // `template.typ` to change a margin, a toggle, or a name.
@@ -36,6 +39,9 @@
   // ---- What the report is about ----------------------------------------
   title: "Your Project Title",
 
+  // The acknowledgement uses this as a course name. If you enter a project
+  // name such as "Project Phase I", edit the three matching sentences in
+  // 01_preamble/03_acknowledgement.typ so they sound correct.
   subject: (
     name: "Subject Name",
     code: "23CSE175",
