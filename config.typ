@@ -163,6 +163,18 @@
 
     paragraph-indent: 0.5in,
 
+    // The gap between paragraphs on the acknowledgement page, which is set as
+    // a list of separate thanks rather than as running prose. Raise it if the
+    // page looks cramped, lower it if you add enough paragraphs that the page
+    // starts shrinking itself to fit.
+    acknowledgement-gap: 1em,
+
+    // Extra space above a page title on a bordered page. Only the
+    // acknowledgement needs it: the abstract and the lists sit on plain pages
+    // where the top margin already gives the title room, but inside a border
+    // the title otherwise crowds the rule above it.
+    plate-title-drop: 0.5in,
+
     // Word's ladder is 18/16/14/12/10. The cover title and the chapter
     // separator card take 18, chapter headings 16, and body text 12, which
     // is the floor for anything that is a heading.

@@ -107,9 +107,14 @@
 // Shared front-matter furniture
 // ---------------------------------------------------------------------------
 
-#let section-title(config, body) = {
-  align(center, text(size: config.style.text-size.h1, weight: "bold", upper(body)))
-  v(24pt)
+// Every front matter page title: the abstract, the contents, the two lists and
+// the acknowledgement. `k` is the fit-page scale factor for the pages that use
+// one; `drop` is extra space above the title, which only a bordered page asks
+// for.
+#let section-title(config, body, k: 1.0, drop: 0pt) = {
+  v(drop * k)
+  align(center, text(size: config.style.text-size.h1 * k, weight: "bold", upper(body)))
+  v(24pt * k)
 }
 
 // The table of contents, list of figures and list of tables are the same

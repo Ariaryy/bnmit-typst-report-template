@@ -1,8 +1,24 @@
-#import "../template.typ": fit-page, plate
+#import "../template.typ": fit-page, plate, section-title
 
-// `k` is the fit-page scale factor; see `fit-page` in template.typ. The
-// acknowledgement is conventionally one page, so if you add a paragraph or a
-// fourth team member it shrinks rather than running over.
+// ===========================================================================
+// EDIT THE PROSE BELOW. It is meant to be changed.
+//
+// This page is the one part of the report whose wording is not standard: who
+// you thank, in what order, and how warmly is yours to decide. The names of
+// the college's office holders are written out here rather than pulled from
+// config.typ, because they are prose, not data, and burying eight names and
+// their honorifics in a config file makes both files worse.
+//
+// What does come from config.typ is anything already recorded there: the
+// subject, your guide, your department and its head, and the author list at
+// the bottom. Change those in config.typ, not here.
+//
+// Each paragraph is wrapped in `thanks[...]`, which adds the gap after it.
+// Add, remove or reorder those freely. The page shrinks itself to stay on one
+// sheet, so a few extra paragraphs will not push it onto a second.
+// ===========================================================================
+
+// `k` is the fit-page scale factor; see `fit-page` in template.typ.
 #let acknowledgement-body(config, k) = [
   #set text(
     size: config.style.text-size.body * k,
@@ -10,13 +26,12 @@
   )
   #set par(justify: true, leading: config.style.leading)
 
-  // Top-aligned with a fixed gap under the title, so a shortened or rewritten
-  // acknowledgement keeps the same first line position instead of drifting up
-  // the page the way vertical centring would.
-  #align(center, text(size: config.style.text-size.h1 * k, weight: "bold", upper[Acknowledgement]))
-  #v(24pt * k)
+  // Top-aligned and sharing the front matter title treatment, so a shortened
+  // or rewritten acknowledgement keeps the same first line position instead of
+  // drifting up the page the way vertical centring would.
+  #section-title(config, [Acknowledgement], k: k, drop: config.style.plate-title-drop)
 
-  #let thanks(body) = { body; parbreak(); v(0.4em) }
+  #let thanks(body) = { body; parbreak(); v(config.style.acknowledgement-gap) }
 
   #thanks[We consider it a privilege to express through the pages of this report, a few
     words of gratitude to all those distinguished personalities who guided and inspired

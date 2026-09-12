@@ -187,8 +187,9 @@ only appears on pages that carry no header, still sits at the true 0.75in.
 
 ### `style`
 
-`border-stroke`, `border-inset`, `paragraph-indent`, `leading`, the colours, the
-font families, and `text-size`, which holds the whole type ladder.
+`border-stroke`, `border-inset`, `paragraph-indent`, `acknowledgement-gap`,
+`plate-title-drop`, `leading`, the colours, the font families, and `text-size`, which
+holds the whole type ladder.
 
 Hyphenation is off everywhere, the way Word behaves by default, so justified
 text pays for it in word spacing rather than in broken words.
@@ -217,6 +218,13 @@ chapter's running text.
 ---
 
 ## 4. Writing the report
+
+### The acknowledgement
+
+Its wording is the one part of the report that is not standard, so it lives as
+prose in `01_preamble/03_acknowledgement.typ` rather than as fields in
+`config.typ`. Open that file and edit it. The comment at the top says which
+parts come from `config.typ` and should be changed there instead.
 
 ### Chapters
 
