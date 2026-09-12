@@ -27,6 +27,6 @@
         )
       })
 
-    entry-table(config, ("Chapter No.", "Title", "Page No."), rows)
+    entry-table(("Chapter No.", "Title", "Page No."), rows)
   }
 }

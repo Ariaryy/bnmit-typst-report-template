@@ -114,18 +114,17 @@
 
 // The table of contents, list of figures and list of tables are the same
 // object with different columns, so they are built by one function and read as
-// one design.
-#let entry-table(config, headers, rows, columns: (auto, 1fr, auto)) = {
-  let alignments = (left, left, right)
+// one design. Columns are proportional rather than `auto` so all three lists
+// line up with each other, and everything is centred under its heading.
+#let entry-table(headers, rows, columns: (3fr, 5fr, 3fr)) = {
   table(
     columns: columns,
     stroke: none,
-    align: (col, _) => alignments.at(col),
+    align: center + horizon,
     inset: (x: 4pt, y: 5pt),
-    table.header(..headers.enumerate().map(((i, h)) => {
-      align(alignments.at(i), text(weight: "bold", upper(h)))
-    })),
-    table.hline(stroke: 0.75pt),
+    table.header(
+      ..headers.map(h => pad(bottom: 8pt, text(weight: "bold", upper(h)))),
+    ),
     ..rows.flatten(),
   )
 }

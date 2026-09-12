@@ -20,6 +20,6 @@
       link(f.location(), str(counter(page).at(f.location()).first())),
     ))
 
-    entry-table(config, ("Figure No.", "Description", "Page No."), rows)
+    entry-table(("Figure No.", "Description", "Page No."), rows)
   }
 }

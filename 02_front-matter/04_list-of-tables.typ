@@ -11,6 +11,6 @@
       link(t.location(), str(counter(page).at(t.location()).first())),
     ))
 
-    entry-table(config, ("Table No.", "Description", "Page No."), rows)
+    entry-table(("Table No.", "Description", "Page No."), rows)
   }
 }
