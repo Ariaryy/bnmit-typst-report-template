@@ -16,7 +16,8 @@
 #set text(font: config.style.fonts.body, size: 10pt)
 
 #let m = config.layout.margin
-#let tick(len) = line(length: len, stroke: 0.4pt)
+#let rule-stroke = 0.4pt
+#let label(body) = text(7pt, body)
 
 // The report's own border, drawn at exactly the configured margin.
 #place(
@@ -27,14 +28,35 @@
   ),
 )
 
-// Rulers along each edge, ticked every inch.
+// Rulers along the top and left edges, ticked every inch from the paper edge.
+//
+// A tick has to run perpendicular to the edge it measures, or it marks nothing:
+// the top ruler's ticks point down the page and the left ruler's point across
+// it. Labels are centred on their tick rather than placed at it, since `place`
+// anchors content by its corner and an uncentred label sits a character's width
+// off the mark it names.
+#let tick-length = 0.25in
+#let label-box = 0.6in
+
+// Stops at 7in: A4 is 8.27in wide, so an 8in label would run off the sheet.
 #for i in range(1, 8) {
-  place(top + left, dx: i * 1in, tick(0.25in))
-  place(top + left, dx: i * 1in, dy: 0.28in, align(center, text(7pt, str(i) + [in])))
+  place(top + left, dx: i * 1in, line(length: tick-length, angle: 90deg, stroke: rule-stroke))
+  place(
+    top + left,
+    dx: i * 1in - label-box / 2,
+    dy: tick-length + 2pt,
+    box(width: label-box, align(center, label[#i in])),
+  )
 }
+
 #for i in range(1, 12) {
-  place(top + left, dy: i * 1in, line(length: 0.25in, angle: 0deg, stroke: 0.4pt))
-  place(top + left, dx: 0.28in, dy: i * 1in - 0.06in, text(7pt, str(i) + [in]))
+  place(top + left, dy: i * 1in, line(length: tick-length, angle: 0deg, stroke: rule-stroke))
+  place(
+    top + left,
+    dx: tick-length + 3pt,
+    dy: i * 1in - 0.5 * 1em,
+    box(height: 1em, align(horizon, label[#i in])),
+  )
 }
 
 #place(top + left, dx: m.left + 0.25in, dy: m.top + 0.6in, block(
