@@ -14,6 +14,11 @@
 //
 // If the dialog reports 100% and a margin still measures wrong on paper, print
 // this page and measure the two bars.
+//
+// The edge rulers start at the paper edge, so a printer will clip the first few
+// millimetres of each tick. That is expected and harmless: what a tick marks is
+// its position along the edge, not its length, and the two measurement bars sit
+// well inside any printable area.
 
 #import "config.typ": config
 
@@ -87,7 +92,12 @@
   #box(width: 5in, height: 9pt, stroke: 0.6pt)
 
   #v(0.8em)
-  *C.* The rectangle around this page is the report's border. It should sit
+  *C.* The ticks along the top and left edges are one inch apart, measured from
+  the paper edge. Their outermost few millimetres will be clipped, which does
+  not matter: it is where each tick sits along the edge that counts.
+
+  #v(0.6em)
+  *D.* The rectangle around this page is the report's border. It should sit
   *#m.left.inches()in* (#calc.round(m.left.cm(), digits: 2) cm) from the left
   edge, *#m.right.inches()in* (#calc.round(m.right.cm(), digits: 2) cm) from
   the right, and *#m.top.inches()in* (#calc.round(m.top.cm(), digits: 2) cm)
