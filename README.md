@@ -26,7 +26,9 @@ Best if you have never used Typst and just want the report done.
    unzipped repository. Keep the structure: `01_preamble/`,
    `02_front-matter/` and the rest must stay as folders.
 5. Upload your font files into `fonts/` (see [section 2](#2-fonts)).
-6. Open `main.typ`. The PDF builds on the right as you type.
+6. Open `main.typ` and press preview. Always preview `main.typ`, even while
+   you are editing a chapter: a chapter on its own has no cover, contents or
+   page numbers, because `main.typ` is what applies the template.
 7. Download the PDF when you are done.
 
 The web app autosaves and lets you share the project with your team, which is
@@ -49,6 +51,11 @@ cd my-report
 typst compile --root . main.typ            # one-shot build, writes main.pdf
 typst watch  --root . main.typ             # rebuild on every save
 ```
+
+Always compile `main.typ`. A chapter file on its own renders as a few unstyled
+pages with no cover, contents or page numbers, because `main.typ` is what
+applies the template. In VS Code with Tinymist, run **Typst: Pin main file** on
+`main.typ` once, otherwise the preview follows whichever file you are editing.
 
 `--root .` matters. The template refers to images with absolute paths like
 `/template-images/bnmit.png`, and `--root` is what defines where `/` points.

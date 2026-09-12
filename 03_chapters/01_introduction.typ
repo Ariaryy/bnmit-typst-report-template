@@ -1,3 +1,6 @@
+// Compile main.typ, not this file: on its own a chapter has no cover,
+// contents, page numbers or styling.
+
 = Introduction
 
 This chapter doubles as a cheat sheet. Delete everything below and write your
