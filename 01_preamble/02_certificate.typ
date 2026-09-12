@@ -51,10 +51,14 @@
   // Justification is switched off here: at four columns each cell is narrow
   // enough that justified text would stretch a wrapped name across it.
   #{
+    let compact = config.signatories.len() == 4
+    let signatory-size = if compact { 10pt * k } else { config.style.text-size.body * k }
+    let signatory-gutter = if compact { 6pt } else { 10pt }
+    set text(size: signatory-size)
     set par(justify: false, leading: 0.65em)
     grid(
       columns: config.signatories.map(_ => 1fr),
-      column-gutter: 10pt,
+      column-gutter: signatory-gutter,
       ..config.signatories.map(s => align(
         center,
         stack(spacing: 0.5em, strong(s.name), ..s.lines),
