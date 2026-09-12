@@ -63,6 +63,7 @@
     footer: none,
     {
       set align(center + horizon)
+      set par(justify: false)
       set text(weight: "bold")
       // Held well inside the border so a long chapter title wraps into a
       // block instead of running rule to rule.
