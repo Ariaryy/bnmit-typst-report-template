@@ -130,9 +130,9 @@
     align: (col, row) => if row == 0 { center } else { body-align.at(col) },
     inset: (x: 4pt, y: 5pt),
     table.header(
-      // Title case rather than all caps: these headings sit above title cased
-      // entries, and a row of shouting above them reads worse than it looks.
-      ..headers.map(h => pad(bottom: 8pt, text(weight: "bold", h))),
+      // Caps for the column headings, title case for the entries underneath,
+      // so the heading row reads as a label rather than as another entry.
+      ..headers.map(h => pad(bottom: 8pt, text(weight: "bold", upper(h)))),
     ),
     ..rows.flatten(),
   )
