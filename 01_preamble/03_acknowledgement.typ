@@ -38,8 +38,9 @@
   #thanks[We would like to thank *Dr. Krishnamurthy G N*, Deputy Director, BNMIT,
     Bengaluru for his constant encouragement.]
 
-  #thanks[We would like to thank *#config.department.hod*, Professor and Head in the
-    Department of #config.department.name, BNMIT, Bengaluru, for the support and
+  #thanks[We would like to thank *#config.department.hod.name*,
+    #config.department.hod.designation in the Department of
+    #config.department.name, BNMIT, Bengaluru, for the support and
     encouragement towards the completion of the #config.subject.name project.]
 
   #thanks[We would like to express our gratitude to our guide *#config.guide.name*,

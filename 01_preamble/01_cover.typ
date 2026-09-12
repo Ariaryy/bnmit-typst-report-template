@@ -30,7 +30,7 @@
   #set text(size: 14pt * k)
   #pad(text(size: 12pt * k, emph[Submitted in partial fulfilment for the award of degree of]))
 
-  #strong[Bachelor of Engineering]
+  #strong(config.degree)
   #linebreak()
   *in*
   #linebreak()
@@ -49,8 +49,10 @@
       ..config.authors.map(a => (strong(a.name), strong(a.usn))).flatten(),
     ),
   )
-  #numbering("I", config.semester.number) #quote(config.semester.section) Section
-  #linebreak()
+  #if config.options.cover-section [
+    #numbering("I", config.semester.number) #quote(config.semester.section) Section
+    #linebreak()
+  ]
   #v(1pt * k)
   Under the Guidance of
   #linebreak()

@@ -37,7 +37,7 @@
   #print-names(config.authors) bonafide students of
   #numbering("I", config.semester.number) Semester B.E., *B.N.M. Institute of Technology*,
   an Autonomous Institution under Visvesvaraya Technological University, Belagavi
-  submitted in partial fulfillment for the Bachelor of Engineering in
+  submitted in partial fulfillment for the #config.degree in
   #upper(config.department.name), during the year #config.year. It is certified that
   all corrections/suggestions indicated for Internal Assessment have been incorporated
   in the report. This report has been approved as it satisfies the academic

@@ -4,6 +4,34 @@
 //
 // See README.md for a field-by-field walkthrough.
 
+// ---------------------------------------------------------------------------
+// Your branch
+//
+// These two bindings are what make the template branch-agnostic. Change them
+// and the cover, the certificate's signature block, the acknowledgement and
+// the page footer all follow, because everything below refers to these rather
+// than repeating "CSE" in eight places.
+// ---------------------------------------------------------------------------
+
+#let department = (
+  name: "Computer Science and Engineering",
+  abbreviation: "CSE",
+  hod: (name: "HOD Name", designation: "Professor and Head"),
+)
+
+#let guide = (
+  name: "Mentor/Guide Name",
+  designation: "Assistant Professor",
+  // Usually your own department, but a guide from another one works: the
+  // certificate and acknowledgement print this, not `department` above.
+  department: (
+    abbreviation: department.abbreviation,
+    name: department.name,
+  ),
+)
+
+// ---------------------------------------------------------------------------
+
 #let config = (
   // ---- What the report is about ----------------------------------------
   title: "Your Project Title",
@@ -20,23 +48,19 @@
   // anything else the department asks for this semester all fit here.
   cover-line: [*Report On*],
 
+  // The award the report is submitted towards, printed on the cover and in the
+  // certificate paragraph. "Bachelor of Engineering" for every B.E. branch;
+  // change it if your programme is named differently.
+  degree: "Bachelor of Engineering",
+
   // ---- Who wrote it ----------------------------------------------------
   authors: (
     (name: "Author 1", usn: "1BG23CS000"),
     (name: "Author 2", usn: "1BG23CS000"),
   ),
 
-  guide: (
-    name: "Mentor/Guide Name",
-    designation: "Assistant Professor",
-    department: (abbreviation: "CSE", name: "Computer Science and Engineering"),
-  ),
-
-  department: (
-    name: "Computer Science and Engineering",
-    abbreviation: "CSE",
-    hod: "HOD Name",
-  ),
+  guide: guide,
+  department: department,
 
   semester: (number: 5, section: "A"),
   year: "2025-26",
@@ -55,14 +79,25 @@
   // The grid draws one column per entry, so adding or removing a signatory
   // re-flows the row on its own. Two to four entries fit comfortably; past
   // four the columns get too narrow to read.
+  //
+  // The first two are built from `guide` and `department` above, so they stay
+  // correct for any branch without being retyped here.
   signatories: (
     (
-      name: "Mentor/Guide Name",
-      lines: ("Assistant Professor", "Dept. of CSE", "BNMIT, Bengaluru"),
+      name: guide.name,
+      lines: (
+        guide.designation,
+        "Dept. of " + guide.department.abbreviation,
+        "BNMIT, Bengaluru",
+      ),
     ),
     (
-      name: "HOD Name",
-      lines: ("Professor and HOD", "Dept. of CSE", "BNMIT, Bengaluru"),
+      name: department.hod.name,
+      lines: (
+        department.hod.designation,
+        "Dept. of " + department.abbreviation,
+        "BNMIT, Bengaluru",
+      ),
     ),
     (
       name: "Dr. S Y Kulkarni",
@@ -89,6 +124,10 @@
 
     abstract: true,
     references: true,
+
+    // The `V "A" Section` line on the cover, under the author list. Some
+    // reports are not tied to a section and want it gone.
+    cover-section: true,
 
     // How many "Examiner N: ___" rows appear under the signature block on
     // the certificate. Set to 0 to drop the block entirely.

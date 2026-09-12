@@ -116,10 +116,33 @@ or a switch.
 | `authors` | list of `(name, usn)`; drives the cover, the certificate and the acknowledgement sign-off |
 | `guide` | the project guide's name, designation and department |
 | `department` | name, abbreviation (used in the page footer) and HOD |
+| `degree` | the award the report is submitted towards, e.g. "Bachelor of Engineering" |
 | `semester` | `(number, section)`; the number is printed as a Roman numeral |
 | `year` | academic year, printed on the cover and in every page footer |
 | `institute` | the college masthead: name, tagline, accreditation paragraph, URL. The accreditation line carries an expiry date and a branch list, both of which change, which is why it lives here |
 | `abstract` | the abstract, as content |
+
+### Using this for another branch
+
+`department` and `guide` are bound at the top of `config.typ`, above the
+dictionary, and everything else refers to them. Changing those two is the whole
+job:
+
+```typst
+#let department = (
+  name: "Electronics and Communication Engineering",
+  abbreviation: "ECE",
+  hod: (name: "...", designation: "Professor and Head"),
+)
+```
+
+That one edit updates the cover, the `Department of ...` line, the certificate
+paragraph and its signature block, the acknowledgement, and the `Dept. of ECE,
+BNMIT` in every page footer. Nothing in the template hardcodes a branch.
+
+Two things you may also want to change: `degree`, if your programme is not
+called Bachelor of Engineering, and `institute.accreditation`, which lists the
+accredited branches and carries an expiry date.
 
 ### `signatories`
 
@@ -138,6 +161,7 @@ Two to four entries lay out well. Past four the columns get too narrow to read.
 | `header-rules` | `true` | the two hairlines under the running head and above the running foot |
 | `abstract` | `true` | include the abstract page |
 | `references` | `true` | include the reference list. Turning it off still loads the bibliography, so existing `@citations` keep compiling and keep rendering as `[1]` |
+| `cover-section` | `true` | the `V "A" Section` line on the cover, under the author list |
 | `external-examiners` | `2` | how many `Examiner N:` rows appear on the certificate. `0` removes the block |
 
 ### `layout.margin`
