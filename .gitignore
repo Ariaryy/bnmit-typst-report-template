@@ -1,1 +1,8 @@
 temp
+out/
+*.pdf
+
+# Times New Roman, Calibri and English111 Vivace BT are not redistributable.
+# See fonts/README.md.
+fonts/*.ttf
+fonts/*.otf
