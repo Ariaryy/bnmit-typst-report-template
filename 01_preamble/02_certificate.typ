@@ -45,7 +45,7 @@
 
   #set align(center)
   #v(1fr)
-  #v(24pt * k)
+  #v(36pt * k)
 
   // One column per signatory, so two and four both lay out on their own.
   // Justification is switched off here: at four columns each cell is narrow
@@ -64,7 +64,6 @@
 
   #if config.options.external-examiners > 0 [
     #v(1fr)
-    #v(24pt * k)
     #table(
       stroke: none,
       columns: (2fr, 2.5fr, 2fr),
