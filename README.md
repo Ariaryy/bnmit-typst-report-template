@@ -318,25 +318,38 @@ it. Typst reads BibTeX too.
 
 ## 5. Printing
 
-Print at **Actual Size** or **100%**. Do not use **Fit**, **Fit to printable
-area** or **Shrink oversized pages**.
+Print at **Actual size**. Do not use **Fit**, **Fit to printable area** or
+**Shrink oversized pages**.
 
-Those options scale an A4 page down to clear the printer's unprintable edge,
-typically to around 95%, which pulls every margin inwards by the same
-percentage. A 1.25in margin comes out at roughly 1.33in and a 0.75in top margin
-at roughly 0.98in, with nothing wrong in the file.
+Those options scale an A4 page down to clear the printer's unprintable edge and
+pull the report's margins inwards with it. A 1.25in margin can land near 1.33in
+and a 0.75in top margin near 0.98in, with nothing wrong in the file.
 
-To check your print shop before committing to a full run:
+**Check this before you print.** Most print dialogs show a *Scale* figure next
+to the preview. If it reads anything other than 100%, that is the problem:
+
+```
+Page Sizing & Handling
+  ( ) Fit                 <- scales to ~93% on A4
+  (o) Actual size         <- use this
+  ( ) Shrink oversized pages
+```
+
+If the dialog reports 100% and a margin still measures wrong on paper, build
+the calibration sheet:
 
 ```bash
 typst compile --root . calibration.typ
 ```
 
-Print that single page the same way you would print the report, and measure the
-two bars on it. The page tells you what to do with the result. One sheet is
-cheaper than arguing with a template that was already correct.
+It carries a 10 cm bar, a 5 in bar and inch rulers down two edges, all drawn at
+the same geometry as the report. Print one copy the way you print the report
+and measure the bars; the page tells you what to do with the result.
 
----
+Do not compensate for a scaled printer by changing `layout.margin`. The scaling
+is centred on the printable area rather than on the sheet, so it does not shift
+every margin by the same amount, and the next correctly printed copy would come
+out wrong.
 
 ## 6. Repository map
 

@@ -1,14 +1,19 @@
-// A one-sheet print test. Compile it, print it the same way you print the
-// report, and measure the two bars with a ruler.
+// A one-sheet print test.
 //
 //   typst compile --root . calibration.typ
 //
-// If the 10 cm bar measures 10.0 cm, your printer is at 100% and the report's
-// margins land exactly where config.typ says they do. If it measures short
-// (around 9.5 cm is typical), the print dialog is scaling the page to fit the
-// printer's unprintable border, and every margin in the report is being pulled
-// inwards by the same percentage. Fix it in the dialog, not in the template:
-// choose "Actual Size" or "100%" instead of "Fit" or "Shrink oversized pages".
+// Before you print anything, open the print dialog and look at the Scale
+// figure it reports. If it says anything other than 100%, that is your answer
+// already and you can close the dialog without spending a sheet: under Page
+// Sizing & Handling, choose "Actual size" rather than "Fit" or "Shrink
+// oversized pages".
+//
+// "Fit" scales an A4 page down to clear the printer's unprintable border,
+// typically to somewhere around 93%, and pulls every margin in the report
+// inwards by that factor. Nothing in the file is wrong when this happens.
+//
+// If the dialog reports 100% and a margin still measures wrong on paper, print
+// this page and measure the two bars.
 
 #import "config.typ": config
 
@@ -69,7 +74,9 @@
   #text(16pt, weight: "bold")[Print calibration]
 
   #v(0.5em)
-  Measure both bars below with a ruler.
+  Check the *Scale* figure in your print dialog first. If it is not 100%, set
+  Page Sizing & Handling to *Actual size* and you are done. If it is 100%,
+  measure both bars below with a ruler.
 
   #v(0.6em)
   *A.* Exactly *10.0 cm* long:   #v(2pt)
@@ -94,11 +101,14 @@
     a template problem: change `layout.margin`.
 
     #v(0.5em)
-    *If bar A measures short* the printer is scaling the page down to fit its
-    own unprintable edge. Divide your measurement by 10 to get the factor; it
-    applies to every margin equally. Set the print dialog to *Actual Size* or
-    *100%* rather than *Fit* or *Shrink oversized pages*, and reprint. Do not
-    compensate for this in `config.typ`, or a correctly printed copy comes out
-    wrong.
+    *If bar A measures short* the printer is scaling the page down to clear its
+    own unprintable edge. Set Page Sizing & Handling to *Actual size* rather
+    than *Fit* or *Shrink oversized pages*, and reprint.
+
+    #v(0.5em)
+    Do not compensate for a short measurement by changing `layout.margin`. The
+    scaling is centred on the printable area, not on the sheet, so it does not
+    shift every margin by the same amount, and a copy printed correctly
+    afterwards would come out wrong.
   ]
 ])
