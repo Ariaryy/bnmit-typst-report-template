@@ -311,8 +311,15 @@ Cite it with `@smith2024`. The reference list builds itself at the end of the
 report in IEEE style. Change the style with `bibliography.style` in
 `config.typ`.
 
-If you already have a `.bib` file, drop it in and point `bibliography.path` at
-it. Typst reads BibTeX too.
+**Prefer BibTeX?** Typst reads `.bib` just as well. Drop your `refs.bib` in,
+point `bibliography.path` at it, and delete `references.yml`. The `@key`
+citations in your chapters do not change. That is usually the better choice if
+you are exporting citations from Google Scholar, IEEE Xplore, Zotero or
+Mendeley rather than writing them by hand.
+
+`bibliography.style` accepts any CSL style Typst bundles, including `ieee`,
+`apa`, `mla`, `chicago-author-date` and `vancouver`, or a path to your own
+`.csl` file.
 
 ---
 

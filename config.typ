@@ -215,7 +215,19 @@
   ),
 
   // ---- Bibliography ------------------------------------------------------
-  // Hayagriva's own YAML format. See README.md, and
-  // https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+  // `path` takes either of the two formats Typst reads. Nothing else changes
+  // when you switch; citations stay `@key` either way.
+  //
+  //   .yml / .yaml   Hayagriva, Typst's own format. What this template ships
+  //                  with, and the easier one to hand-write.
+  //                  https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+  //
+  //   .bib           BibTeX. Use this if you are exporting citations rather
+  //                  than typing them: Google Scholar, IEEE Xplore, Zotero,
+  //                  Mendeley and arXiv all hand you a .bib. Drop it in beside
+  //                  this file and point `path` at it.
+  //
+  // `style` is any CSL style Typst bundles, including "ieee", "apa", "mla",
+  // "chicago-author-date" and "vancouver", or a path to your own .csl file.
   bibliography: (path: "references.yml", style: "ieee"),
 )
