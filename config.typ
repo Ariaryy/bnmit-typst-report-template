@@ -71,7 +71,7 @@
   ),
 
   abstract: [
-    Your abstract goes here. One paragraph, no citations, no figures.
+    Your abstract goes here.
   ],
 
   // ---- Switches --------------------------------------------------------
@@ -131,13 +131,17 @@
     // is the floor for anything that is a heading.
     text-size: (
       title: 18pt,
-      separator: 18pt,
+
+      // A chapter announces itself with "CHAPTER N" first and its name second,
+      // so the label is the larger of the two lines and the name sits a step
+      // under it. Front matter page titles and the reference list heading use
+      // `h1`, independently of either.
+      separator-label: 18pt,
+      separator-title: 16pt,
+      chapter-label: 16pt,
+      chapter-title: 14pt,
+
       h1: 16pt,
-      // The "CHAPTER 1" label above a chapter title. One step down the ladder
-      // from the title itself, so the two read as a label and its heading
-      // rather than as two headings of equal weight. On the separator page the
-      // same pair is `h1` over `separator`.
-      chapter-label: 14pt,
       h2: 14pt,
       h3: 12pt,
       h4: 12pt,

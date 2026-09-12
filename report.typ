@@ -67,10 +67,10 @@
       // Held well inside the border so a long chapter title wraps into a
       // block instead of running rule to rule.
       block(width: 80%)[
-        #text(size: config.style.text-size.h1)[CHAPTER #number]
+        #text(size: config.style.text-size.separator-label)[CHAPTER #number]
         #linebreak()
         #v(0.2em)
-        #text(size: config.style.text-size.separator)[#upper(title)]
+        #text(size: config.style.text-size.separator-title)[#upper(title)]
       ]
     },
   )
@@ -138,7 +138,7 @@
     block(width: 100%)[
       #text(size: style.text-size.chapter-label, weight: "bold")[CHAPTER #number]
       #set align(center)
-      #set text(size: style.text-size.h1, weight: "bold")
+      #set text(size: style.text-size.chapter-title, weight: "bold")
       #upper(it.body)
     ]
     v(style.leading)

@@ -173,9 +173,9 @@ The ladder:
 
 | Element | Size |
 | --- | --- |
-| cover title, chapter separator title | 18 pt |
-| chapter heading, front matter titles, separator's "CHAPTER N" label | 16 pt |
-| the "CHAPTER N" label above a chapter heading | 14 pt |
+| cover title, separator page's "CHAPTER N" label | 18 pt |
+| separator page's chapter title, front matter titles, reference list heading, the "CHAPTER N" label above a chapter's text | 16 pt |
+| chapter title above a chapter's text | 14 pt |
 | level 2 heading | 14 pt |
 | level 3 and 4 headings | 12 pt |
 | body text | 12 pt |
@@ -185,6 +185,10 @@ The ladder:
 Word allows 18/16/14/12/10, and a heading is never set smaller than the text it
 introduces, which is why levels 3 and 4 sit at body size and separate themselves
 by weight and slant instead.
+
+A chapter announces itself with "CHAPTER N" first and its name second, so the
+label is the larger of the two lines on both the separator page and above the
+chapter's running text.
 
 ---
 
