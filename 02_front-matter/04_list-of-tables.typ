@@ -6,7 +6,7 @@
 
   context {
     let rows = query(figure.where(kind: table)).map(t => (
-      link(t.location(), pad(left: 0.8em, figure-number(table, t))),
+      link(t.location(), figure-number(table, t)),
       link(t.location(), t.caption.body),
       link(t.location(), str(counter(page).at(t.location()).first())),
     ))

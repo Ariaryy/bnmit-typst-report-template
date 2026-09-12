@@ -1,4 +1,4 @@
-#import "../template.typ": entry-table, section-title
+#import "../template.typ": entry-table, indented-number, section-title
 
 // Built by hand from a heading query rather than with `outline`, because the
 // house style wants a three column table and `outline` emits a flat sequence
@@ -24,8 +24,9 @@
         let title = h.body
 
         (
-          // Sections sit indented under their chapter number.
-          link(h.location(), pad(left: if chapter { 0.8em } else { 2.4em }, style(number))),
+          // Sections sit indented under their chapter number, while the
+          // column as a whole stays centred under its heading.
+          link(h.location(), indented-number(style(number), level: h.level)),
           link(h.location(), style(title)),
           link(h.location(), style(page-number)),
         )

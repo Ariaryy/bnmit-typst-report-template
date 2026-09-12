@@ -117,12 +117,17 @@
 // one design. Columns are proportional rather than `auto` so all three lists
 // line up with each other.
 //
-// Headings are centred over their column; the rows underneath are not. The
-// number column is left aligned so a section number can sit visibly indented
-// under its chapter number, and the description column is justified so a
-// caption that wraps fills the column instead of forming a ragged stack.
+// The number and page columns are centred under their headings; the
+// description column is left aligned and justified, so a caption that wraps
+// fills the column instead of forming a ragged centred stack.
+//
+// The contents page needs its chapter numbers centred as one block while still
+// showing a section indented under its chapter, which a centred cell cannot
+// do on its own. `indented-number` below is the fix: a fixed width box, itself
+// centred, holding a left aligned number. The column of numbers reads as one
+// centred block and the indent survives inside it.
 #let entry-table(headers, rows, columns: (2.4fr, 6.4fr, 2.2fr)) = {
-  let body-align = (left + horizon, left + horizon, center + horizon)
+  let body-align = (center + horizon, left + horizon, center + horizon)
   set par(justify: true)
   table(
     columns: columns,
@@ -136,6 +141,16 @@
     ),
     ..rows.flatten(),
   )
+}
+
+// See `entry-table`. Nudges a chapter number left and a section number right
+// by half a step each, so the two read as a hierarchy while the column of
+// numbers stays centred as one block. Padding rather than a fixed width box,
+// so it stays centred whatever width the numbers reach.
+#let indented-number(number, level: 1, step: 1.4em) = if level == 1 {
+  pad(right: step, number)
+} else {
+  pad(left: step, number)
 }
 
 #let institute-plate(config, k: 1.0) = {
