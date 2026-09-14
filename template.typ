@@ -137,7 +137,7 @@
   table(
     columns: columns,
     stroke: none,
-    align: (col, row) => if row == 0 { center } else { body-align.at(col) },
+    align: body-align,
     inset: (x: 4pt, y: 5pt),
     table.header(
       // Caps for the column headings, title case for the entries underneath,
@@ -193,3 +193,47 @@
   }
   body(k)
 })
+
+// `table.header` marks a row as repeating, but it does not align it: a table's
+// `align` argument applies to every row, header included, and beats anything a
+// show rule sets on the cells. So a header centred over a left aligned column
+// has to be centred inside its own cell, which is what this rewrite does. It
+// is applied once over the whole document, so a chapter writes a plain
+// `table.header(...)` and gets a centred header row without passing anything.
+#let center-table-headers(doc) = {
+  let centered(cell) = if cell.func() == table.cell {
+    let fields = cell.fields()
+    let body = fields.remove("body")
+    table.cell(..fields, align: center, body)
+  } else {
+    align(center, cell)
+  }
+
+  let is-centered(cell) = if cell.func() == table.cell {
+    cell.fields().at("align", default: none) == center
+  } else {
+    cell.func() == align
+  }
+
+  show table: it => {
+    let cells = it.children
+    let i = cells.position(c => c.func() == table.header)
+    // Without the `is-centered` guard the rebuilt table re-enters this rule
+    // and wraps its header again, forever.
+    if i == none or cells.at(i).children.all(is-centered) { return it }
+
+    let header = cells.at(i).fields()
+    let header-cells = header.remove("children")
+    let fields = it.fields()
+    let _ = fields.remove("children")
+
+    table(
+      ..fields,
+      ..cells.slice(0, i),
+      table.header(..header, ..header-cells.map(centered)),
+      ..cells.slice(i + 1),
+    )
+  }
+
+  doc
+}

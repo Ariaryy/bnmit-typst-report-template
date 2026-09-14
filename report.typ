@@ -2,7 +2,7 @@
 // `template.typ` holds the shared primitives; this file is the only place
 // that knows what order the parts go in.
 
-#import "template.typ": border-of, layout-of, running-footer, running-header
+#import "template.typ": border-of, center-table-headers, layout-of, running-footer, running-header
 #import "01_preamble/01_cover.typ": cover
 #import "01_preamble/02_certificate.typ": certificate
 #import "01_preamble/03_acknowledgement.typ": acknowledgement
@@ -111,9 +111,23 @@
   show heading.where(level: 4): set text(size: style.text-size.h4, style: "italic")
   show heading: it => {
     if it.level == 1 { it } else {
-      v(style.leading)
+      // A level-3 heading directly under a level-2 heading (no paragraph in
+      // between) would otherwise stack its own leading gap on top of the
+      // trailing gap the level-2 heading just left, reading as two full
+      // lines of space instead of one. Drop only that one gap; every other
+      // heading keeps the normal space above it.
+      context {
+        let prior = query(
+          selector(heading).or(selector(par)).before(it.location(), inclusive: false),
+        )
+        let prev = if prior.len() > 0 { prior.last() } else { none }
+        let sub-sub-under-sub = it.level == 3 and prev != none and prev.func() == heading and prev.level == 2
+        if not sub-sub-under-sub {
+          v(style.leading)
+        }
+      }
       it
-      v(style.leading / 2)
+      v(style.leading)
     }
   }
 
@@ -187,6 +201,7 @@
     hyphenate: false,
   )
   set align(left)
+  show: center-table-headers
 
   cover(config)
   certificate(config)
